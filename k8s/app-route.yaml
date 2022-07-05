@@ -1,1 +1,13 @@
-
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: python-flask
+  namespace: kingflare-dev
+spec:  
+  to:
+    kind: Service
+    name: app
+    weight: 100
+  port:
+    targetPort: '8080'
+  wildcardPolicy: None
