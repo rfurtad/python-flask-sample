@@ -16,7 +16,7 @@ stages:
 - stage: Build
   displayName: Build Stage
   jobs:
-    - template: build-template.yml@templates-azure-devops
+    - template: python-templates/build-template.yml@templates-azure-devops
       parameters:
         containerRegistry: 'containerRegistry'
         repository: '$(repository)'
