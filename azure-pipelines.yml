@@ -9,8 +9,8 @@ resources:
 variables:
   tag: '$(Build.BuildId)'
   containerRegistry: 'Docker Registry'
-  repository: 'kingflare/turbo-todo'
-  imagePullSecret: 'testing'
+  repository: 'kingflare/python-flask-sample'
+  imagePullSecret: 'python-flask'
   kubernetesServiceConnection: 'Kubernetes Connection'
 stages:
 - stage: Build
@@ -18,15 +18,7 @@ stages:
   jobs:
     - template: build-template.yml@templates-azure-devops
       parameters:
-        containerRegistry: 'Docker Registry'
-        repository: 'kingflare/turbo-todo'
+        containerRegistry: 'containerRegistry'
+        repository: '$(repository)'
         tag: '$(tag)'
-- stage: Deploy
-  displayName: Deploy Stage
-  jobs:
-    - template: deploy-template.yml@templates-azure-devops
-      parameters:
-        containerRegistry: '$(containerRegistry)'        
-        repository: 'kingflare/turbo-todo'
-        kubeConnection: 'Kubernetes Connection'
-        tag: '$(tag)'
+
