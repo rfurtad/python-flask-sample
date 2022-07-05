@@ -18,7 +18,7 @@ stages:
   jobs:
     - template: python-templates/build-template.yml@templates-azure-devops
       parameters:
-        containerRegistry: '$(containerRegistry)'
+        containerRegistry: 'Docker Registry'
         repository: '$(repository)'
         tag: '$(tag)'
 
