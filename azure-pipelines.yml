@@ -21,4 +21,12 @@ stages:
         containerRegistry: $(containerRegistry)
         repository: $(repository)
         tag: $(tag)
-
+- stage: Deploy
+  displayName: Deploy Stage
+  jobs:
+    - template: python-templates/deploy-template.yml@templates-azure-devops
+      parameters:
+        containerRegistry: $(containerRegistry)
+        repository: $(repository)
+        kubeConnection: $(kubernetesServiceConnection)
+        tag: $(tag)
