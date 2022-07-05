@@ -1,11 +1,11 @@
 trigger:
-  - azure-pipelines-1
+  - master
 resources:
   repositories:
     - repository: templates-azure-devops
       type: github
       name: rfurtad/templates-azure-devops
-      endpoint: github.com_rfurtad
+      endpoint: rfurtad
 variables:
   tag: '$(Build.BuildId)'
   containerRegistry: 'Docker Registry'
